@@ -41,16 +41,20 @@ let currentCategory = 'all';
 
 function showCategory(category) {
     currentCategory = category;
-    updateTabButtons();
+    updateTabButtons(category);
     renderGallery();
 }
 
-function updateTabButtons() {
+function updateTabButtons(activeCategory) {
     const buttons = document.querySelectorAll('.tab-btn');
+
     buttons.forEach(btn => {
         btn.classList.remove('active');
+
+        if (btn.dataset.category === activeCategory) {
+            btn.classList.add('active');
+        }
     });
-    event.target.classList.add('active');
 }
 
 function renderGallery() {
@@ -113,4 +117,9 @@ function loadFromStorage() {
 window.addEventListener('DOMContentLoaded', () => {
     loadFromStorage();
     renderGallery();
+});
+document.querySelectorAll('.tab-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        showCategory(button.dataset.category);
+    });
 });
