@@ -3,17 +3,16 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    color: #333;
+    background-color: #000;
+    color: white;
     min-height: 100vh;
 }
 
 header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: #111;
+    color: #d4af37;
     padding: 2rem 0;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -94,15 +93,16 @@ main {
     padding: 0 1rem;
 }
 
-.gallery-container {
+.gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
+    margin-top: 40px;
 }
 
 .jewelry-card {
-    background: white;
+    background: #111;
+    border: 1px solid #d4af37;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -110,8 +110,8 @@ main {
 }
 
 .jewelry-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
 }
 
 .jewelry-card img {
@@ -128,12 +128,12 @@ main {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
-    color: #333;
+    color: #d4af37;
 }
 
 .card-category {
     font-size: 0.85rem;
-    color: #667eea;
+    color: #ffffff;
     margin-bottom: 1rem;
     text-transform: capitalize;
 }
@@ -143,8 +143,8 @@ main {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background-color: #25d366;
-    color: white;
+    background-color: #d4af37;
+    color: black;
     padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 6px;
@@ -200,4 +200,30 @@ footer {
         padding: 0.6rem 1rem;
         font-size: 0.9rem;
     }
+
+@media (max-width: 1200px) {
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+
 }
