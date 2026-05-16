@@ -224,6 +224,14 @@ footer {
         grid-template-columns: 1fr;
     }
 }
-
-
+.logo {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+}
+.logo-section {
+    display: flex;
+    align-items: center;
+}
 }
