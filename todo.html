@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List - Task Manager</title>
+    <link rel="stylesheet" href="todo-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1><i class="fas fa-tasks"></i> My To-Do List</h1>
+                <p class="subtitle">Stay organized and productive</p>
+            </div>
+        </header>
+
+        <main>
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="todoInput" 
+                        placeholder="Add a new task..."
+                        autocomplete="off"
+                    >
+                    <select id="prioritySelect" class="priority-select">
+                        <option value="low">Low</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                    <button id="addBtn" class="add-btn">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-list"></i> All
+                </button>
+                <button class="filter-btn" data-filter="active">
+                    <i class="fas fa-circle-notch"></i> Active
+                </button>
+                <button class="filter-btn" data-filter="completed">
+                    <i class="fas fa-check-circle"></i> Completed
+                </button>
+                <button class="filter-btn danger" data-filter="delete" id="clearBtn">
+                    <i class="fas fa-trash"></i> Clear All
+                </button>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Total:</span>
+                    <span class="stat-value" id="totalCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Completed:</span>
+                    <span class="stat-value" id="completedCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Pending:</span>
+                    <span class="stat-value" id="pendingCount">0</span>
+                </div>
+            </div>
+
+            <!-- Todo List -->
+            <div class="todo-section">
+                <ul id="todoList" class="todo-list"></ul>
+                <div id="emptyState" class="empty-state">
+                    <i class="fas fa-inbox"></i>
+                    <h2>No tasks yet</h2>
+                    <p>Add a task to get started!</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 To-Do List App. All rights reserved.</p>
+            <p id="lastUpdated" class="last-updated"></p>
+        </footer>
+    </div>
+
+    <script src="todo-script.js"></script>
+</body>
+</html>
