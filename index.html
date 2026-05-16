@@ -3,35 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beloved Diamond - תכשיטים</title>
+    <title>Beloved Diamond - תכשיטים יוקרתיים</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <div class="header-content">
-            <h1>Beloved Diamond</h1>
-            <p class="subtitle">תכשיטים יוקרתיים</p>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="logo.png" alt="Beloved Diamonds Logo" class="logo">
+                </div>
+                <nav class="main-nav">
+                    <button class="tab-btn active" data-category="all">הכל</button>
+                    <button class="tab-btn" data-category="set">סט תכשיטים</button>
+                    <button class="tab-btn" data-category="earrings">עגילים</button>
+                    <button class="tab-btn" data-category="rings">טבעות</button>
+                    <button class="tab-btn" data-category="bracelets">צמידים</button>
+                    <button class="tab-btn" data-category="necklaces">שרשרות</button>
+                    <a href="admin.html" class="admin-btn">🔐 ניהול</a>
+                </nav>
+            </div>
         </div>
-        <nav class="admin-nav">
-            <a href="admin.html" class="admin-link">ניהול</a>
-        </nav>
     </header>
 
-    <nav class="tabs-container">
-        <button class="tab-btn active" onclick="showCategory('all')">כל התכשיטים</button>
-        <button class="tab-btn" onclick="showCategory('sets')">סט תכשיטים</button>
-        <button class="tab-btn" onclick="showCategory('earrings')">עגילים</button>
-        <button class="tab-btn" onclick="showCategory('rings')">טבעות</button>
-        <button class="tab-btn" onclick="showCategory('bracelets')">צמידים</button>
-        <button class="tab-btn" onclick="showCategory('necklaces')">שרשרות</button>
-    </nav>
-
     <main>
-        <div id="gallery" class="gallery-container"></div>
+        <div class="container">
+            <div class="gallery" id="gallery">
+                <!-- תכשיטים יופיעו כאן -->
+            </div>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 Beloved Diamond. כל הזכויות שמורות.</p>
+        <p>&copy; 2026 Beloved Diamonds. כל הזכויות שמורות.</p>
     </footer>
 
     <script src="script.js"></script>
