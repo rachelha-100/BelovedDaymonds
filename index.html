@@ -2,7 +2,7 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Beloved Diamond - תכשיטים יוקרתיים</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -13,7 +13,8 @@
                 <div class="logo-section">
                     <img src="logo.png" alt="Beloved Diamonds Logo" class="logo">
                 </div>
-                <nav class="main-nav">
+
+                <nav class="main-nav" aria-label="קטגוריות">
                     <button class="tab-btn active" data-category="all">הכל</button>
                     <button class="tab-btn" data-category="sets">סט תכשיטים</button>
                     <button class="tab-btn" data-category="earrings">עגילים</button>
@@ -28,9 +29,7 @@
 
     <main>
         <div class="container">
-            <div class="gallery" id="gallery">
-                <!-- תכשיטים יופיעו כאן -->
-            </div>
+            <div class="gallery" id="gallery"></div>
         </div>
     </main>
 
