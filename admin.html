@@ -2,25 +2,27 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>ניהול - Beloved Diamond</title>
     <link rel="stylesheet" href="admin-styles.css">
 </head>
 <body>
     <header>
         <div class="header-content">
-            <h1>פנל ניהול - Beloved Diamond</h1>
-            <p class="subtitle">ניהול תכשיטים וגלריות</p>
+            <div>
+                <h1>פנל ניהול - Beloved Diamond</h1>
+                <p class="subtitle">ניהול תכשיטים וגלריות</p>
+            </div>
+            <nav>
+                <a href="index.html" class="back-link">חזור לעמוד הבית</a>
+            </nav>
         </div>
-        <nav class="admin-nav">
-            <a href="index.html" class="back-link">חזור לעמוד הבית</a>
-        </nav>
     </header>
 
     <main class="admin-container">
-        <div class="admin-panel">
+        <section class="admin-panel">
             <h2>הוסף תכשיט חדש</h2>
-            
+
             <form id="addJewelryForm" class="jewelry-form">
                 <div class="form-group">
                     <label for="title">שם התכשיט</label>
@@ -52,12 +54,12 @@
 
                 <button type="submit" class="btn-submit">הוסף תכשיט</button>
             </form>
-        </div>
+        </section>
 
-        <div class="items-list">
+        <section class="items-list">
             <h2>תכשיטים קיימים</h2>
             <div id="itemsList" class="items-grid"></div>
-        </div>
+        </section>
     </main>
 
     <footer>
