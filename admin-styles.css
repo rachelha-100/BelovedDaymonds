@@ -4,42 +4,56 @@
     box-sizing: border-box;
 }
 
+html {
+    direction: rtl;
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     color: #333;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 2rem;
-    text-align: center;
+    padding: 1.25rem clamp(1rem, 4vw, 2rem);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
+}
+
+.header-content {
+    min-width: 0;
 }
 
 .header-content h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    margin-bottom: 0.35rem;
 }
 
 .subtitle {
-    font-size: 0.95rem;
+    font-size: clamp(0.8rem, 2vw, 0.95rem);
     opacity: 0.9;
 }
 
 .back-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background-color: rgba(255, 255, 255, 0.2);
     color: white;
-    padding: 0.75rem 1.5rem;
+    padding: 0.65rem 1rem;
     border-radius: 25px;
     text-decoration: none;
     border: 2px solid white;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .back-link:hover {
@@ -48,32 +62,33 @@ header {
 }
 
 .admin-container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    width: min(1200px, calc(100% - 2rem));
+    margin: 1.5rem auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
 }
 
 .admin-panel,
 .items-list {
     background: white;
     border-radius: 12px;
-    padding: 2rem;
+    padding: clamp(1rem, 3vw, 2rem);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 0;
 }
 
 h2 {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     color: #667eea;
-    font-size: 1.5rem;
+    font-size: clamp(1.15rem, 2.5vw, 1.5rem);
 }
 
 .jewelry-form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.15rem;
 }
 
 .form-group {
@@ -90,7 +105,9 @@ h2 {
 .form-group input,
 .form-group select,
 .form-group textarea {
-    padding: 0.75rem;
+    width: 100%;
+    min-width: 0;
+    padding: 0.8rem;
     border: 2px solid #ddd;
     border-radius: 6px;
     font-size: 1rem;
@@ -108,12 +125,12 @@ h2 {
 
 .form-group textarea {
     resize: vertical;
-    min-height: 80px;
+    min-height: 90px;
 }
 
 .image-preview {
     margin-top: 1rem;
-    max-width: 200px;
+    width: min(200px, 100%);
     border-radius: 6px;
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -122,13 +139,16 @@ h2 {
 .image-preview img {
     width: 100%;
     height: auto;
+    max-height: 240px;
+    object-fit: contain;
     display: block;
 }
 
 .btn-submit {
+    width: 100%;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 1rem;
+    padding: 0.9rem 1rem;
     border: none;
     border-radius: 6px;
     font-size: 1rem;
@@ -144,8 +164,8 @@ h2 {
 
 .items-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+    gap: 0.9rem;
 }
 
 .item-card {
@@ -154,6 +174,7 @@ h2 {
     overflow: hidden;
     transition: all 0.3s ease;
     position: relative;
+    min-width: 0;
 }
 
 .item-card:hover {
@@ -165,17 +186,18 @@ h2 {
     width: 100%;
     height: 120px;
     object-fit: cover;
+    display: block;
 }
 
 .item-card-content {
-    padding: 0.75rem;
+    padding: 0.7rem;
     background: white;
 }
 
 .item-card-title {
     font-size: 0.9rem;
     font-weight: bold;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.45rem;
     color: #333;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -214,21 +236,45 @@ footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 2rem;
-    margin-top: 4rem;
+    padding: 1.5rem;
+    margin-top: 2rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
     header {
         flex-direction: column;
-        gap: 1rem;
+        text-align: center;
     }
 
     .admin-container {
         grid-template-columns: 1fr;
     }
+}
+
+@media (max-width: 500px) {
+    .admin-container {
+        width: min(100% - 1rem, 1200px);
+        margin: 0.75rem auto;
+        gap: 0.75rem;
+    }
+
+    .admin-panel,
+    .items-list {
+        border-radius: 10px;
+        padding: 1rem;
+    }
 
     .items-grid {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .back-link {
+        width: 100%;
+    }
+}
+
+@media (max-width: 340px) {
+    .items-grid {
+        grid-template-columns: 1fr;
     }
 }
