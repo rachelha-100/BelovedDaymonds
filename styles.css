@@ -16,7 +16,287 @@ header {
     padding: 2rem 0;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    direction: rtl;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #000;
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    width: min(1200px, calc(100% - 2rem));
+    margin-inline: auto;
+}
+
+header {
+    background: #111;
+    color: #d4af37;
+    padding: 0.9rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.header-content {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+}
+
+.logo-section {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: clamp(70px, 8vw, 105px);
+    height: auto;
+    max-height: 65px;
+    object-fit: contain;
+    display: block;
+}
+
+.main-nav {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.tab-btn,
+.admin-btn {
+    min-height: 42px;
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.tab-btn {
+    background: #1c1c1c;
+    color: #fff;
+    border: 1px solid #444;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.tab-btn:hover {
+    border-color: #d4af37;
+    color: #d4af37;
+}
+
+.tab-btn.active {
+    background: #d4af37;
+    color: #000;
+    border-color: #d4af37;
+}
+
+.admin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.admin-btn:hover {
+    background: #d4af37;
+    color: #000;
+}
+
+main {
+    width: 100%;
+    padding: 1.5rem 0 2rem;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: clamp(12px, 2vw, 25px);
+}
+
+.jewelry-card {
+    min-width: 0;
+    background: #111;
+    border: 1px solid #d4af37;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.jewelry-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.45);
+}
+
+.jewelry-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    padding: clamp(0.75rem, 1.5vw, 1.2rem);
+}
+
+.card-title {
+    font-size: clamp(0.95rem, 1.4vw, 1.2rem);
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+    color: #d4af37;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card-category {
+    font-size: clamp(0.75rem, 1vw, 0.85rem);
+    color: #fff;
+    margin-bottom: 0.8rem;
+}
+
+.whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    width: 100%;
+    min-height: 42px;
+    background: #d4af37;
+    color: #000;
+    padding: 0.65rem 0.75rem;
+    border-radius: 7px;
+    font-size: clamp(0.78rem, 1vw, 0.95rem);
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.whatsapp-btn:hover {
+    background: #20ba5a;
+    color: #fff;
+    transform: scale(1.02);
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #aaa;
+}
+
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 1100px) {
+    .gallery {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 850px) {
+    .header-content {
+        flex-direction: column;
+    }
+
+    .logo {
+        width: 85px;
+        max-height: 55px;
+    }
+
+    .main-nav {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: min(100% - 1rem, 1200px);
+    }
+
+    header {
+        padding: 0.7rem 0;
+    }
+
+    .logo {
+        width: 72px;
+        max-height: 48px;
+    }
+
+    .main-nav {
+        gap: 0.4rem;
+    }
+
+    .tab-btn,
+    .admin-btn {
+        min-height: 38px;
+        padding: 0.5rem 0.7rem;
+        font-size: 0.82rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .card-content {
+        padding: 0.65rem;
+    }
+
+    .whatsapp-btn {
+        min-height: 38px;
+        padding: 0.55rem 0.4rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .main-nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+    }
+
+    .tab-btn,
+    .admin-btn {
+        width: 100%;
+    }
+}
+
     justify-content: space-between;
     align-items: center;
     padding-right: 2rem;
